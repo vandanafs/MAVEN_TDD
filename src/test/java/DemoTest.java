@@ -3,7 +3,13 @@ import org.junit.Test;
 
 public class DemoTest {
       Demo demoObj=new Demo();
+/*
+   Restrictions : String input should be numbers.
+   Edge cases-Code must account for negative numbers, leading zeros,
+   decimal numbers
+   Bleeding edge cases-fractions,
 
+ */
     @Test
     public void demoMethodTest(){
         //given
@@ -32,6 +38,8 @@ public class DemoTest {
     }
 
 
+
+
     @Test
     public void firstNumBiggerTest(){
         //given
@@ -55,6 +63,113 @@ public class DemoTest {
         //then
         Assert.assertFalse(actual);
     }
+    @Test
+    public void firstNumBiggerSameLengthFirstNegTest(){
+        //given
+        String  first="-2";
+        String second="10";
+        //when
+        Boolean actual=demoObj.firstNumBigger(first,second);
+
+        //then
+        Assert.assertFalse(actual);
+    }
+    @Test
+    public void firstNumBiggerSameLengthSecondNegTest(){
+        //given
+        String  first="21";
+        String second="-1";
+        //when
+        Boolean actual=demoObj.firstNumBigger(first,second);
+
+        //then
+        Assert.assertTrue(actual);
+    }
+
+    @Test
+    public void firstNumBiggerSameLengthBothNagativeTest(){
+        //given
+        String  first="-21";
+        String second="-10";
+        //when
+        Boolean actual=demoObj.firstNumBigger(first,second);
+
+        //then
+        Assert.assertFalse(actual);
+    }
+
+    @Test
+    public void firstNumBigger_firstShortFirstNegativeTest(){
+        //given
+        String  first="-1";
+        String second="800";
+        //when
+        Boolean actual=demoObj.firstNumBigger(first,second);
+
+        //then
+        Assert.assertFalse(actual);
+    }
+
+    @Test
+    public void firstNumBigger_firstShortSecondtNegativeTest(){
+        //given
+        String  first="10";
+        String second="-800";
+        //when
+        Boolean actual=demoObj.firstNumBigger(first,second);
+
+        //then
+        Assert.assertTrue(actual);
+    }
+
+    @Test
+    public void firstNumBigger_firstShortBothNegativeTest(){
+        //given
+        String  first="-100";
+        String second="-80";
+        //when
+        Boolean actual=demoObj.firstNumBigger(first,second);
+
+        //then
+        Assert.assertFalse(actual);
+    }
+
+    @Test
+    public void firstNumBigger_firstLongFirstNegativeTest(){
+        //given
+        String  first="-100";
+        String second="50";
+        //when
+        Boolean actual=demoObj.firstNumBigger(first,second);
+
+        //then
+        Assert.assertFalse(actual);
+    }
+
+    @Test
+    public void firstNumBigger_firstLongSecondtNegativeTest(){
+        //given
+        String  first="10000";
+        String second="-800";
+        //when
+        Boolean actual=demoObj.firstNumBigger(first,second);
+
+        //then
+        Assert.assertTrue(actual);
+    }
+
+    @Test
+    public void firstNumBigger_firstLongBothNegativeTest(){
+        //given
+        String  first="-100";
+        String second="-80";
+        //when
+        Boolean actual=demoObj.firstNumBigger(first,second);
+
+        //then
+        Assert.assertFalse(actual);
+    }
+
 
 
 }
